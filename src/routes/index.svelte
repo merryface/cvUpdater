@@ -1,7 +1,9 @@
 <script>
-
+  import PersonalDetails from "../components/forms/PersonalDetails.svelte";
 </script>
-test
-<style lang="scss">
 
+<PersonalDetails />
+
+<style lang="scss">
+  
 </style>
