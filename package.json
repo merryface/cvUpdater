@@ -14,5 +14,8 @@
 		"sass": "^1.53.0",
 		"svelte": "^3.44.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@supabase/supabase-js": "^1.35.4"
+	}
 }

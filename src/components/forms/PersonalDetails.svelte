@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { personalDetails } from '../../data/stores.js'
+  import { personalDetails } from '$lib/stores.js'
 
   let name = personalDetails.name;
   let street = personalDetails.street;
@@ -8,6 +8,7 @@
   let city = personalDetails.city;
   let tel = personalDetails.tel;
   let email = personalDetails.email;
+  let saveMessage = ""
 
   onMount(async () => {
     let data = localStorage.personalDetails
@@ -23,8 +24,6 @@
       tel = info.tel;
       email = info.email;
     }
-    
-    
   });
 
   let updateForm = () => {
@@ -35,6 +34,7 @@
     personalDetails.tel = tel;
     personalDetails.email = email;
     localStorage.personalDetails = JSON.stringify(personalDetails)
+    saveMessage = "Details updated :)"
   }
 
   
@@ -49,6 +49,8 @@
   <input type="email" name="email" id="email" bind:value={email} placeholder="Email">
   <button type="button" id="update" on:click={updateForm}>Update</button>
 </form>
+
+<p>{saveMessage}</p>
 
 <style lang="scss">
   @import '../../styles/personalDetailsForm.scss';
