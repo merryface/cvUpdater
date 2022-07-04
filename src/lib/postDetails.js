@@ -1,10 +1,10 @@
 import { supabase } from '$lib/supabaseClient.js'
 
-export const postPersonalDetails = async (personalDetails) => {
+export const postDetails = async (details) => {
   let postSuccess = false
   try {
     const user = supabase.auth.user()
-    personalDetails.user_id = user.id
+    details.user_id = user.id
 
     // check if personal_details table contains any data for this user
     let { data, error, status } = await supabase
@@ -16,7 +16,7 @@ export const postPersonalDetails = async (personalDetails) => {
         // update existing personal details
         await supabase
           .from('personal_details')
-          .update([personalDetails])
+          .update([details])
           .eq('user_id', user.id)
           .then(() => postSuccess = true)
       }
@@ -25,7 +25,7 @@ export const postPersonalDetails = async (personalDetails) => {
         // insert new personal details
         await supabase
           .from('personal_details')
-          .insert([personalDetails])
+          .insert([details])
           .eq('user_id', user.id)
           .then(() => postSuccess = true)
       }

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
-  import {getPersonalDetails} from '$lib/getPersonalDetails.js'
-  import {postPersonalDetails} from '$lib/postPersonalDetails.js'
+  import {getDetails} from '$lib/getDetails.js'
+  import {postDetails} from '$lib/postDetails.js'
 
   let personalDetails = {
     name: "",
@@ -20,23 +20,22 @@
   let saveMessage = ""
 
   onMount(async () => {
-    let remotePersonalDetails = await getPersonalDetails()
+    let remotePersonalDetails = await getDetails('personal_details')
 
     if (Object.keys(remotePersonalDetails).length == 0 && localStorage.personalDetails) {
       personalDetails = JSON.parse(localStorage.personalDetails);
-      name = personalDetails.name
-      street = personalDetails.street
-      postcode = personalDetails.postcode
-      city = personalDetails.city
-      tel = personalDetails.tel
-      email = personalDetails.email
-      
     } else if(Object.keys(remotePersonalDetails).length > 0) {
       personalDetails = remotePersonalDetails;
     }
     else {
       return
     }
+    name = personalDetails.name
+    street = personalDetails.street
+    postcode = personalDetails.postcode
+    city = personalDetails.city
+    tel = personalDetails.tel
+    email = personalDetails.email
   });
 
   let updateForm  = async () => {
@@ -47,7 +46,7 @@
     personalDetails.tel = tel;
     personalDetails.email = email;
     
-    const message = await postPersonalDetails(personalDetails)
+    const message = await postDetails(personalDetails)
     localStorage.personalDetails = JSON.stringify(personalDetails)
     
     saveMessage = message

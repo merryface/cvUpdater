@@ -1,11 +1,11 @@
 import { supabase } from '$lib/supabaseClient.js'
 
-export const getPersonalDetails = async () => {
+export const getDetails = async (table_name) => {
   try {
     const user = supabase.auth.user()
     
     let { data, error, status } = await supabase
-      .from('personal_details')
+      .from(table_name)
       .select()
       .eq('user_id', user.id)
 
