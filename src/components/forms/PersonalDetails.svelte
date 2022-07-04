@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
-  // import { personalDetails } from '$lib/stores.js'
   import {getPersonalDetails} from '$lib/getPersonalDetails.js'
+  import {postPersonalDetails} from '$lib/postPersonalDetails.js'
 
   let personalDetails = {
     name: "",
@@ -22,7 +22,7 @@
   onMount(async () => {
     let remotePersonalDetails = await getPersonalDetails()
 
-    if (Object.keys(remotePersonalDetails).length == 0) {
+    if (Object.keys(remotePersonalDetails).length == 0 && localStorage.personalDetails) {
       personalDetails = JSON.parse(localStorage.personalDetails);
       name = personalDetails.name
       street = personalDetails.street
@@ -30,8 +30,6 @@
       city = personalDetails.city
       tel = personalDetails.tel
       email = personalDetails.email
-      console.log(personalDetails)
-      console.log(localStorage.personalDetails)
       
     } else if(Object.keys(remotePersonalDetails).length > 0) {
       personalDetails = remotePersonalDetails;
@@ -41,16 +39,18 @@
     }
   });
 
-  let updateForm = () => {
+  let updateForm  = async () => {
     personalDetails.name = name;
     personalDetails.street = street;
     personalDetails.postcode = postcode;
     personalDetails.city = city;
     personalDetails.tel = tel;
     personalDetails.email = email;
+    
+    const message = await postPersonalDetails(personalDetails)
     localStorage.personalDetails = JSON.stringify(personalDetails)
     
-    saveMessage = "Details updated :)"
+    saveMessage = message
   }
 </script>
 
