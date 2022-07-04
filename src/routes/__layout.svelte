@@ -7,10 +7,10 @@ import supabase from '$lib/db';
 
   if (browser) {
     $session = supabase.auth.session()
-    setTimeout(() => $session ? goto('/') : goto('/signup'))
+    setTimeout(() => $session ? goto('/') : goto('/signin'))
     supabase.auth.onAuthStateChange((event, sesh) => {
       $session = sesh
-      setTimeout(() => $session ? goto('/') : goto('/signup'))
+      setTimeout(() => $session ? goto('/') : goto('/signin'))
     })
   }
 
