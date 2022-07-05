@@ -1,30 +1,52 @@
 import { supabase } from '$lib/supabaseClient.js'
+import { transformColumnNameToLabel } from '$lib/transformColumnNameToLabel.js'
 
-export const postDetails = async (details) => {
+
+export const postDetails = async (details, table_name) => {
   let postSuccess = false
+  let localAndRemoteSame = false
   try {
     const user = supabase.auth.user()
     details.user_id = user.id
 
-    // check if personal_details table contains any data for this user
+    // check if details table contains any data for this user
     let { data, error, status } = await supabase
-      .from('personal_details')
+      .from(table_name)
       .select()
       .eq('user_id', user.id)
 
       if (data.length > 0) {
-        // update existing personal details
-        await supabase
-          .from('personal_details')
+        // Check local storage to see if user has already submitted details
+        let localStorageDetails = JSON.parse(localStorage.getItem(table_name))
+        let dataComparator = data[0]
+        delete dataComparator.id
+        delete dataComparator.user_id
+        delete dataComparator.created_at
+        localAndRemoteSame = 
+          localStorageDetails.name === dataComparator.name 
+          && localStorageDetails.street === dataComparator.street 
+          && localStorageDetails.postcode === dataComparator.postcode 
+          && localStorageDetails.city === dataComparator.city
+          && localStorageDetails.phone === dataComparator.phone
+          && localStorageDetails.email === dataComparator.email
+
+        if (localAndRemoteSame) {
+          console.log('local and remote same');
+          postSuccess = true
+        } else {
+          // update existing personal details
+          await supabase
+          .from(table_name)
           .update([details])
           .eq('user_id', user.id)
           .then(() => postSuccess = true)
+        }
       }
 
       if (data.length === 0) {
-        // insert new personal details
+        // insert new details
         await supabase
-          .from('personal_details')
+          .from(table_name)
           .insert([details])
           .eq('user_id', user.id)
           .then(() => postSuccess = true)
@@ -33,9 +55,10 @@ export const postDetails = async (details) => {
     if (error && status !== 406) throw error
 
     if (data) {
-      if(data.length > 0 && postSuccess) return "Personal details updated"
-      if(data.length === 0 && postSuccess) return "Personal details inserted"
-      if(!postSuccess) return "Personal details not updated"
+      if(data.length > 0 && postSuccess && !localAndRemoteSame) return `${transformColumnNameToLabel(table_name)} updated`
+      if(data.length === 0 && postSuccess) return `${transformColumnNameToLabel(table_name)} updated`
+      if(!postSuccess && !localAndRemoteSame) return `${transformColumnNameToLabel(table_name)} not updated`
+      if(localAndRemoteSame) return 'No changes detected to update'
     }
   } catch (error) {
     alert(error.message)

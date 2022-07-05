@@ -69,5 +69,5 @@
 </section>
 
 <style lang="scss">
-  @import '../../styles/personalDetailsForm.scss';
+  @import '../../styles/detailsForm.scss';
 </style>

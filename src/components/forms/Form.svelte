@@ -13,10 +13,8 @@
   onMount(async () => {
     if (Object.keys(remoteDetails).length == 0 && eval('localStorage.'+ table_name)) {
       details = JSON.parse(eval('localStorage.' + table_name));
-      console.log(details)
     } else if(Object.keys(remoteDetails).length > 0) {
       details = await remoteDetails;
-      console.log(remoteDetails)
     }
     else {
       details
@@ -31,11 +29,17 @@
       if(column_name != "user_id" || column_name != "id" || column_name != "created_at" ) detailsArray.push(pair);
     }
   });
+
+  function clearMessage() {
+    saveMessage = ""
+  }
   
-  let updateForm  = async () => {    
-    const message = await postDetails(details)
-    eval('localStorage.'+ table_name + '= JSON.stringify(' + details + ')') 
+  let updateForm  = async () => {
+    saveMessage = "Updating..."    
+    const message = await postDetails(details, table_name)
+    localStorage[table_name] = JSON.stringify(details)
     saveMessage = message
+    const myTimeout = setTimeout(clearMessage, 5000);
   }
 </script>
 
