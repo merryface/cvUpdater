@@ -54,7 +54,8 @@
           name={Object.keys(column)[0]}
           id={Object.keys(column)[0]}
           bind:value={details[Object.keys(column)[0]]}
-          placeholder={transformColumnNameToLabel(Object.keys(column)[0])}>
+          placeholder={transformColumnNameToLabel(Object.keys(column)[0])}
+        />
         {/each}
     {/await}
     <button type="button" id="update" on:click={updateForm}>Update</button>
