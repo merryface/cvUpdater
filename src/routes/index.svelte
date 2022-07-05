@@ -10,7 +10,3 @@
 
 
 <PersonalDetails />
-
-<style lang="scss">
-  
-</style>

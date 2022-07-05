@@ -1,6 +1,6 @@
 <script>
   import Form from "./Form.svelte";
-  let personalDetails = {
+  let details = {
     name: "",
     street: "",
     postcode: "",
@@ -11,6 +11,6 @@
 </script>
 
 <Form
-  details = {personalDetails}
+  details
   table_name = "personal_details"
 />
