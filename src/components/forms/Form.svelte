@@ -9,6 +9,7 @@
   let saveMessage = ""
   let remoteDetails = getDetails(table_name)
   let detailsArray = []
+  let hiddenClass = " hidden"
 
   onMount(async () => {
     if (Object.keys(remoteDetails).length == 0 && eval('localStorage.'+ table_name)) {
@@ -32,6 +33,7 @@
 
   function clearMessage() {
     saveMessage = ""
+    hiddenClass = " hidden"
   }
   
   let updateForm  = async () => {
@@ -39,6 +41,7 @@
     const message = await postDetails(details, table_name)
     localStorage[table_name] = JSON.stringify(details)
     saveMessage = message
+    hiddenClass = ""
     const myTimeout = setTimeout(clearMessage, 5000);
   }
 </script>
@@ -61,7 +64,7 @@
     <button type="button" id="update" on:click={updateForm}>Update</button>
   </form>
   
-  <p class="saveMessage">{saveMessage}</p>
+  <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
 </section>
 
 <style lang="scss">
