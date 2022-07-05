@@ -46,19 +46,29 @@
   }
 </script>
 
-<section class="form_container">
+<section class="form_container" id={table_name + "_container"}>
   <h2 class="form_header">Enter Your {transformColumnNameToLabel(table_name)}</h2>
-  <form id="form-Details" class="form-Details">
+  <form class="form-Details">
     {#await remoteDetails}
       <p>...Loading Form</p>
       {:then}
         {#each detailsArray as column}
-        <input type="text"
-          name={Object.keys(column)[0]}
-          id={Object.keys(column)[0]}
-          bind:value={details[Object.keys(column)[0]]}
-          placeholder={transformColumnNameToLabel(Object.keys(column)[0])}
-        />
+          {#if Object.keys(column)[0] == "text_body"}
+          <textarea
+            name={Object.keys(column)[0]}
+            id={Object.keys(column)[0]+"_"+table_name}
+            bind:value={details[Object.keys(column)[0]]}
+            placeholder={transformColumnNameToLabel(Object.keys(column)[0])}
+            class="text_area"
+          />
+          {:else}
+            <input type="text"
+            name={Object.keys(column)[0]}
+            id={Object.keys(column)[0]+"_"+table_name}
+            bind:value={details[Object.keys(column)[0]]}
+            placeholder={transformColumnNameToLabel(Object.keys(column)[0])}
+            />
+          {/if}
         {/each}
     {/await}
     <button type="button" id="update" on:click={updateForm}>Update</button>

@@ -1,17 +1,23 @@
-.form-Details {
-  display: flex;
-  flex-direction: column;
-  width: 30rem;
-  margin: 0;
-  gap: 1rem;
-}
-
 .form_container {
   position: relative;
   padding: 1rem;
   padding-bottom: 2rem;
   background-color: rgb(49, 28, 236);
   border-radius: 5px;
+  width: 30rem;
+}
+
+.form-Details {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  flex: 1;
+  gap: 1rem;
+}
+
+#blurb_container {
+  flex: 0 0 98%;
+  width: 100%;
 }
 
 .form_header {
@@ -63,4 +69,11 @@ button:focus {
 
 .hidden {
   display: none;
+}
+
+.text_area {
+  min-height: 5rem;
+  max-height: 20rem;
+  max-width: 100%;
+  font-family: inherit
 }
