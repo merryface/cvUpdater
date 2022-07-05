@@ -44,7 +44,7 @@
 </script>
 
 <section class="form_container">
-  <h2 class="form_header">Enter Your Details</h2>
+  <h2 class="form_header">Enter Your {transformColumnNameToLabel(table_name)}</h2>
   <form id="form-Details" class="form-Details">
     {#await remoteDetails}
       <p>...Loading Form</p>
@@ -61,7 +61,7 @@
     <button type="button" id="update" on:click={updateForm}>Update</button>
   </form>
   
-  <p>{saveMessage}</p>
+  <p class="saveMessage">{saveMessage}</p>
 </section>
 
 <style lang="scss">

@@ -31,11 +31,10 @@ export const postDetails = async (details, table_name) => {
           && localStorageDetails.email === dataComparator.email
 
         if (localAndRemoteSame) {
-          console.log('local and remote same');
           postSuccess = true
         } else {
-          // update existing personal details
-          await supabase
+          // update existing details
+          const { data, error } = await supabase
           .from(table_name)
           .update([details])
           .eq('user_id', user.id)
@@ -45,10 +44,11 @@ export const postDetails = async (details, table_name) => {
 
       if (data.length === 0) {
         // insert new details
-        await supabase
+        details.user_id = user.id
+        console.log(details)
+        const { data, error } = await supabase
           .from(table_name)
           .insert([details])
-          .eq('user_id', user.id)
           .then(() => postSuccess = true)
       }
 

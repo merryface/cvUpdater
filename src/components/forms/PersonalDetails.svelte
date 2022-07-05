@@ -11,6 +11,6 @@
 </script>
 
 <Form
-  details
+  details = {details}
   table_name = "personal_details"
 />

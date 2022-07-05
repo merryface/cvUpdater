@@ -1,10 +1,57 @@
 .form-Details {
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 30rem;
-  padding: 0;
   margin: 0;
-  background-color: #fafafa;
   gap: 1rem;
+}
+
+.form_container {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background-color: rgb(49, 28, 236);
+  border-radius: 5px;
+}
+
+.form_header {
+  color: white;
+}
+
+input {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: orange 5px auto;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: 30%;
+  background: white;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+button:focus {
+  outline: orange 5px auto;
+}
+
+.saveMessage {
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  background-color: green;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.hidden {
+  display: none;
 }
