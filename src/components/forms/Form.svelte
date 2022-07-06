@@ -6,16 +6,20 @@
 
   export let details
   export let table_name
+  export let postFunction = postDetails
   let saveMessage = ""
-  let remoteDetails = getDetails(table_name)
+  let remoteDetails
+  let remoteID;
   let detailsArray = []
   let hiddenClass = " hidden"
 
   onMount(async () => {
-    if (Object.keys(remoteDetails).length == 0 && eval('localStorage.'+ table_name)) {
-      details = JSON.parse(eval('localStorage.' + table_name));
+    remoteDetails = await getDetails(table_name)
+    remoteID = remoteDetails.id
+    if (Object.keys(remoteDetails).length == 0 && eval('localStorage.'+ table_name + '_' + remoteID)) {
+      details = JSON.parse(eval('localStorage.'+ table_name + '_' + remoteDetails.id));
     } else if(Object.keys(remoteDetails).length > 0) {
-      details = await remoteDetails;
+      details = remoteDetails;
     }
     else {
       details
@@ -38,10 +42,10 @@
   
   let updateForm  = async () => {
     saveMessage = "Updating..."    
-    const message = await postDetails(details, table_name)
-    localStorage[table_name] = JSON.stringify(details)
-    saveMessage = message
     hiddenClass = ""
+    const message = await postFunction(details, table_name)
+    localStorage.setItem(table_name + '_' + `${remoteID}`, JSON.stringify(details))
+    saveMessage = message
     const myTimeout = setTimeout(clearMessage, 5000);
   }
 </script>

@@ -2,7 +2,7 @@ import { supabase } from '$lib/supabaseClient.js'
 import { transformColumnNameToLabel } from '$lib/transformColumnNameToLabel.js'
 
 
-export const postDetails = async (details, table_name) => {
+export const postATODetails = async (details) => {
   let postSuccess = false
   let localAndRemoteSame = false
   try {
@@ -11,16 +11,17 @@ export const postDetails = async (details, table_name) => {
 
     // check if details table contains any data for this user
     let { data, error, status } = await supabase
-      .from(table_name)
+      .from('training_details')
       .select()
       .eq('user_id', user.id)
 
       if (data.length > 0) {
         // update existing details
         const { data, error } = await supabase
-        .from(table_name)
+        .from('training_details')
         .update([details])
         .eq('user_id', user.id)
+        .eq('ato_name', details.ato_name)
         .then(() => postSuccess = true)
       }
 
@@ -28,7 +29,7 @@ export const postDetails = async (details, table_name) => {
         // insert new details
         details.user_id = user.id
         const { data, error } = await supabase
-          .from(table_name)
+          .from('training_details')
           .insert([details])
           .then(() => postSuccess = true)
       }
@@ -36,9 +37,9 @@ export const postDetails = async (details, table_name) => {
     if (error && status !== 406) throw error
 
     if (data) {
-      if(data.length > 0 && postSuccess && !localAndRemoteSame) return `${transformColumnNameToLabel(table_name)} updated`
-      if(data.length === 0 && postSuccess) return `${transformColumnNameToLabel(table_name)} updated`
-      if(!postSuccess) return `${transformColumnNameToLabel(table_name)} not updated`
+      if(data.length > 0 && postSuccess && !localAndRemoteSame) return `${transformColumnNameToLabel('training_details')} updated`
+      if(data.length === 0 && postSuccess) return `${transformColumnNameToLabel('training_details')} updated`
+      if(!postSuccess) return `${transformColumnNameToLabel('training_details')} not updated`
     }
   } catch (error) {
     alert(error.message)
