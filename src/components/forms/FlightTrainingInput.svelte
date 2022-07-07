@@ -1,6 +1,8 @@
 <script>
   import Form from "./Form.svelte";
   import { postATODetails } from "$lib/postATODetails.js";
+
+  export let remoteID
   let details = {
     ato_name: "",
     qualification: "",
@@ -11,5 +13,6 @@
 <Form
   details = {details}
   table_name = "training_details"
-  postFunction = {postATODetails},
+  postFunction = {postATODetails}
+  remoteID = {remoteID}
 />

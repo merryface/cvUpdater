@@ -1,7 +1,7 @@
 <script>
   import supabase from'$lib/db'
 
-  import FlightTraining from '../components/forms/FlightTrainingInput.svelte'
+  import TrainingQualifications from '../components/TrainingQualifications.svelte'
   import SummaryForms from '../components/summaryForms.svelte'
 
   async function signOut() {
@@ -11,12 +11,4 @@
 
 
 <SummaryForms />
-
-<div class="flightTraining">
-  <FlightTraining />
-  
-</div>
-
-<style lang="scss">
-  @import '../styles/flightTraining.scss';
-</style>
+<TrainingQualifications />

@@ -7,14 +7,15 @@
   export let details
   export let table_name
   export let postFunction = postDetails
+  export let getFunction = getDetails
+  export let remoteID;
   let saveMessage = ""
   let remoteDetails
-  let remoteID;
   let detailsArray = []
   let hiddenClass = " hidden"
 
   onMount(async () => {
-    remoteDetails = await getDetails(table_name)
+    remoteDetails = await getFunction(table_name)
     remoteID = remoteDetails.id
     if (Object.keys(remoteDetails).length == 0 && eval('localStorage.'+ table_name + '_' + remoteID)) {
       details = JSON.parse(eval('localStorage.'+ table_name + '_' + remoteDetails.id));
