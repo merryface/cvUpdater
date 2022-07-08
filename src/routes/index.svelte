@@ -1,23 +1,17 @@
 <script>
   import supabase from'$lib/db'
-
-  import TrainingQualifications from '../components/TrainingQualifications.svelte'
-  import SummaryForms from '../components/summaryForms.svelte'
-  import FormV2 from '../components/forms/FormV2.svelte'
+  import Form from '../components/forms/Form.svelte'
+  import PersonalDetails from '../components/forms/PersonalDetails.svelte'
 
   async function signOut() {
     const {error} = await supabase.auth.signOut()
   }
 </script>
 
-<FormV2
-table_name="Test_table"
+<PersonalDetails />
+<!-- <Form
+table_name="personal_details"
 details = {{
-  testItemOne: "",
-  testItemTwo: "",
-  testItemThree: "",
-  id: 1
-}}
+
+}} -->
 />
-<!-- <SummaryForms />
-<TrainingQualifications /> -->
