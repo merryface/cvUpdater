@@ -26,7 +26,7 @@
     await postDetails(details, table_name)
     saveMessage = "Details saved"
     hiddenClass = ""
-    const myTimeout = setTimeout(clearMessage, 5000);
+    const myTimeout = setTimeout(clearMessage, 3000);
   }
 </script>
 

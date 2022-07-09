@@ -4,9 +4,11 @@ export const postDetails = async (details, table_name) => {
   try {
     const user = supabase.auth.user()
     details.user_id = user.id
+    console.log(details)
+    // update existing details
     const { data, error } = await supabase
     .from(table_name)
-    .insert([details])
+    .update([details])
     .eq('user_id', user.id)
   } catch (error) {
     alert(error.message)
