@@ -25,6 +25,7 @@
     updateLocalStorage(table_name, details)
     await postDetails(details, table_name)
     saveMessage = "Details saved"
+    hiddenClass = ""
     const myTimeout = setTimeout(clearMessage, 5000);
   }
 </script>
