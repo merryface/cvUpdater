@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte'
-  import { getDetails } from '$lib/utils/getDetails.js'
+  import { getDetails } from '$lib/data/getDetails.js'
   import {sanitiseDetails} from '$lib/utils/sanitiseDetails.js'
   import Form from "./Form.svelte"
 

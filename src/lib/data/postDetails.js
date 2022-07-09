@@ -1,6 +1,4 @@
-import { supabase } from '$lib/supabaseClient.js'
-import { transformColumnNameToLabel } from '$lib/transformColumnNameToLabel.js'
-
+import { supabase } from '$lib/data/supabaseClient.js'
 
 export const postDetails = async (details, table_name) => {
   try {
@@ -10,7 +8,7 @@ export const postDetails = async (details, table_name) => {
     const { data, error } = await supabase
     .from(table_name)
     .update([details])
-    .eq('user_id', user.id)
+    .eq('user_id', user.id).then(() => "success")
   } catch (error) {
     alert(error.message)
   }

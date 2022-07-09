@@ -1,5 +1,5 @@
 <script>
-  import supabase from'$lib/utils/db'
+  import supabase from'$lib/data/db'
   import PersonalDetails from '$lib/components/forms/PersonalDetails.svelte'
 
   async function signOut() {
