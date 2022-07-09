@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte'
-  import { getDetails } from '$lib/getDetails.js'
-  import {sanitiseDetails} from '$lib/sanitiseDetails.js'
+  import { getDetails } from '$lib/utils/getDetails.js'
+  import {sanitiseDetails} from '$lib/utils/sanitiseDetails.js'
   import Form from "./Form.svelte"
 
   let details = {}

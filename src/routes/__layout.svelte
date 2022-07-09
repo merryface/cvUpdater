@@ -1,6 +1,6 @@
 <script>
-import Header from "../components/header.svelte";
-import supabase from '$lib/db';
+import Header from "$lib/components/header.svelte";
+import supabase from '$lib/utils/db';
   import {session} from '$app/stores'
   import { browser } from '$app/env';
   import { goto } from '$app/navigation'; 

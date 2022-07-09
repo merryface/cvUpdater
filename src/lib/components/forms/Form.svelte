@@ -1,6 +1,6 @@
 <script>
-  import { transformColumnNameToLabel } from '$lib/transformColumnNameToLabel.js';
-  import updateLocalStorage from '$lib/updateLocalStorage.js';
+  import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js';
+  import updateLocalStorage from '$lib/utils/updateLocalStorage.js';
 
   export let details = {}
   export let detailsArray = []
@@ -34,5 +34,5 @@
 </section>
 
 <style lang="scss">
-  @import '../../styles/detailsForm.scss';
+  @import '../../../styles/detailsForm.scss';
 </style>
