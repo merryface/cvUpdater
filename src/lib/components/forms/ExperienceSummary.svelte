@@ -6,6 +6,7 @@
 
   let details = {}
   let detailsArray = []
+  let newRow = false
 
   onMount(async () => {
     details = await getDetails("experience_summary") 
@@ -19,9 +20,12 @@
         instructor_hours: "",
         a320_hours: "",
       }
+
+      newRow = true
     } 
     let sanitisedDetails = sanitiseDetails(details)
     detailsArray = Object.entries(sanitisedDetails)
+    console.log(newRow)
   })
 
 </script>
@@ -30,4 +34,5 @@
   details = {details}
   detailsArray = {detailsArray}
   table_name = "experience_summary"
+  newRow = {newRow}
 />

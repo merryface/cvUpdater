@@ -1,6 +1,6 @@
 <script>
   import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
-  import { postDetails } from '$lib/data/postDetails.js'
+  import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
 
   export let details = {}
@@ -8,6 +8,7 @@
   export let table_name
   let saveMessage = ""
   let hiddenClass = " hidden"
+  export let newRow = true
 
   const updateLocalDetails = (details, detailsArray) => {
     for (const [column_name, value] of detailsArray) {
@@ -23,7 +24,7 @@
   const updateForm = async () => {
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
-    await postDetails(details, table_name)
+    await postPutDetails(details, table_name, newRow)
     saveMessage = "Details saved"
     hiddenClass = ""
     const myTimeout = setTimeout(clearMessage, 3000);
