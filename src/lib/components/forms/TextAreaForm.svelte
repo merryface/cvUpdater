@@ -31,7 +31,7 @@
   }
 </script>
 
-<section class="form_container">
+<section class="form_container textArea_container">
   <h2 class="form_header">Enter Your {transformColumnNameToLabel(table_name)}</h2>
   <form class="form-Details">
     {#each detailsArray as [label, value]}
