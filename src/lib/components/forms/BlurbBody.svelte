@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import { getDetails } from '$lib/data/getDetails.js'
   import {sanitiseDetails} from '$lib/utils/sanitiseDetails.js'
-  import Form from "./form.svelte"
+  import TextAreaForm from "./TextAreaForm.svelte"
 
   let details = {}
   let detailsArray = []
@@ -24,7 +24,7 @@
 
 </script>
 
-<Form
+<TextAreaForm
   details = {details}
   detailsArray = {detailsArray}
   table_name = "blurb_body"

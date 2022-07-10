@@ -72,9 +72,10 @@ button:focus {
   display: none;
 }
 
-.text_area {
-  min-height: 5rem;
-  max-height: 20rem;
+.textArea {
+  height: 25rem !important;
   max-width: 100%;
-  font-family: inherit
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
 }
