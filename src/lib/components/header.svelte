@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <h1>
     <a href="/">
       CV Creator

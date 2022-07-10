@@ -11,5 +11,8 @@
 
 <PersonalDetails />
 <ExperienceSummary />
-<button on:click={signOut}>Sign Out</button>
-/>
+<button class="signOut" on:click={signOut}>Sign Out</button>
+
+<style lang="scss">
+  @import '../styles/index.scss';
+</style>

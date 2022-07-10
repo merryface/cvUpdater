@@ -41,7 +41,7 @@
         placeholder={transformColumnNameToLabel(label)}
       />
     {/each}
-    <button type="button" id="update" on:click={updateForm}>Update</button>
+    <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button>
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
   </form>
 </section>
