@@ -9,16 +9,11 @@
   let newRow = false
 
   onMount(async () => {
-    details = await getDetails("experience_summary") 
+    details = await getDetails("blurb_body") 
 
     if (Object.entries(details).length == 0) {
       details = {
-        license_number: "",
-        medical_license: "",
-        total_hours: "",
-        pic_hours: "",
-        instructor_hours: "",
-        a320_hours: "",
+        text_body: ""
       }
 
       newRow = true
@@ -32,6 +27,6 @@
 <Form
   details = {details}
   detailsArray = {detailsArray}
-  table_name = "experience_summary"
+  table_name = "blurb_body"
   newRow = {newRow}
 />
