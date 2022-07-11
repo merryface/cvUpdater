@@ -5,3 +5,32 @@
   background-color: rgb(49, 28, 236);
   border-radius: 5px;
 }
+
+@mixin form-Details {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  flex: 1;
+  gap: 1rem;
+}
+
+@mixin input {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin textArea {
+
+}
+
+@mixin submit-button {
+  all: unset;
+  cursor: pointer;
+  width: 30%;
+  background: white;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}

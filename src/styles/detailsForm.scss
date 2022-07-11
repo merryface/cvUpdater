@@ -7,11 +7,7 @@
 }
 
 .form-Details {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  flex: 1;
-  gap: 1rem;
+  @include form-Details;
 }
 
 #blurb_container {
@@ -24,9 +20,7 @@
 }
 
 input {
-  padding: 1rem;
-  border: none;
-  border-radius: 5px;
+  @include input;
 }
 
 input:focus {
@@ -34,14 +28,7 @@ input:focus {
 }
 
 .submitButton {
-  all: unset;
-  cursor: pointer;
-  width: 30%;
-  background: white;
-  border-radius: 5px;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.5rem;
+  @include submit-button;
 }
 
 button:focus {
@@ -49,21 +36,10 @@ button:focus {
 }
 
 .saveMessage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include save-message;
   position: absolute;
   bottom: 2rem;
   right: 1rem;
-  color: white;
-  font-size: 1.5rem;
-  word-wrap: break-word;
-  background-color: green;
-  border-radius: 5px;
-  height: 3.85rem;
-  width: 55%;
-  text-align: center;
-  margin:0;
 }
 
 .hidden {
