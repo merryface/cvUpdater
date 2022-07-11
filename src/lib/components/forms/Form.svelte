@@ -4,6 +4,8 @@
   import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
 
+  import Input from '$lib/components/Input.svelte'
+
   export let details = {}
   export let detailsArray = []
   export let table_name
@@ -23,7 +25,7 @@
     await postPutDetails(details, table_name, newRow)
     saveMessage = "Details saved"
     hiddenClass = ""
-    const myTimeout = setTimeout(clearMessage, 3000);
+    const myTimeout = setTimeout(() => clearMessage, 3000);
   }
 </script>
 
@@ -31,11 +33,15 @@
   <h2 class="form_header">Enter Your {transformColumnNameToLabel(table_name)}</h2>
   <form class="form-Details">
     {#each detailsArray as [label, value]}
-      <input type="text"
+      <Input
+        label={label}
+        value={value}
+      />
+      <!-- <input type="text"
         name={label}
         bind:value={value}
         placeholder={transformColumnNameToLabel(label)}
-      />
+      /> -->
     {/each}
     <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button>
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
