@@ -16,14 +16,6 @@
 
 .submitButton {
   @include submit-button;
-
-  &:focus {
-    outline: orange 5px auto;
-  }
-
-  &:hover {
-    background-color: orange;
-  }
 }
 
 .saveMessage {
@@ -40,6 +32,7 @@
 .textArea_container {
   width: 64rem;
   max-width: 100%;
+  margin: auto;
 }
 
 .textArea {

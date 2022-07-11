@@ -26,7 +26,7 @@
     const myTimeout = setTimeout(clearMessage, 3000);
   }
 </script>
-<section class="form_container qualifications">
+<section class="form_container add_qualifications">
   <h2 class="form_header">Enter New Qualification</h2>
   <form class="form-Details">
       <Input
@@ -48,5 +48,5 @@
 </section>
 
 <style lang="scss">
-  @import '../../../../styles/detailsForm.scss';
+  @import '../../../../styles/add_qualifications.scss';
 </style>

@@ -1,0 +1,29 @@
+@import './mixins.scss';
+
+.add_qualifications {
+  @include form-container;
+  justify-content: center;
+  align-items: center;
+  width: 64rem;
+  margin: auto;
+}
+
+.form_header {
+  color: white;
+}
+
+.form-Details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submitButton {
+  @include submit-button;
+  width: 25%;
+  height: 3.55rem;
+  padding: 0 1rem;
+  font-size: 1.3rem;
+}
