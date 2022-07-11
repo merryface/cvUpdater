@@ -1,6 +1,7 @@
 <script>
   import { postDetails } from '$lib/data/postDetails.js';
   import clearMessage from '$lib/utils/clearMessage.js'
+  import Input from '$lib/components/Input.svelte'
 
   let ato_name = ""
   let qualification = ""
@@ -28,20 +29,18 @@
 <section class="form_container qualifications">
   <h2 class="form_header">Enter New Qualification</h2>
   <form class="form-Details">
-      <input type="text"
-        name="ATO Name"
-        bind:value={ato_name}
-        placeholder={"ATO Name"}
+      <Input
+        label={"ATO_name"}
+        value={ato_name}
       />
-      <input type="text"
-      name="Qualification"
-      bind:value={qualification}
-      placeholder={"Qualification"}
+      <Input 
+        label={"qualification"}
+        value={qualification}
     />
-    <input type="text"
-      name="Date"
-      bind:value={date}
-      placeholder={"Date"}
+    <Input
+      label={"date"}
+      value={date}
+    type="text"
     />
     <button class="submitButton" type="button" id="update" on:click={updateForm}>Add Qualification</button>
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>

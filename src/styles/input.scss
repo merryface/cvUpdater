@@ -1,0 +1,9 @@
+@import './mixins.scss';
+
+input {
+  @include input;
+}
+
+input:focus {
+  outline: orange 5px auto;
+}

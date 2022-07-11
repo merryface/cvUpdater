@@ -10,29 +10,20 @@
   @include form-Details;
 }
 
-#blurb_container {
-  flex: 0 0 98%;
-  width: 100%;
-}
-
 .form_header {
   color: white;
 }
 
-input {
-  @include input;
-}
-
-input:focus {
-  outline: orange 5px auto;
-}
-
 .submitButton {
   @include submit-button;
-}
 
-button:focus {
-  outline: orange 5px auto;
+  &:focus {
+    outline: orange 5px auto;
+  }
+
+  &:hover {
+    background-color: orange;
+  }
 }
 
 .saveMessage {

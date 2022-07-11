@@ -37,11 +37,6 @@
         label={label}
         value={value}
       />
-      <!-- <input type="text"
-        name={label}
-        bind:value={value}
-        placeholder={transformColumnNameToLabel(label)}
-      /> -->
     {/each}
     <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button>
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>

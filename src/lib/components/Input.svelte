@@ -1,5 +1,6 @@
 <script>
-  import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js';
+  import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
+  import '../../styles/input.scss'
   export let label
   export let value
 </script>

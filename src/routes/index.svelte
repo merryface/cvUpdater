@@ -8,8 +8,10 @@
   }
 </script>
 
-<FormsTop />
-<AddPilotQualification />
+<div class="AllForms">
+  <FormsTop />
+  <AddPilotQualification />
+</div>
 <button class="signOut" on:click={signOut}>Sign Out</button>
 
 <style lang="scss">
