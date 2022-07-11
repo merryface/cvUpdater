@@ -1,5 +1,6 @@
 <script>
   import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
+  import clearMessage from '$lib/utils/clearMessage.js'
   import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
 
@@ -14,11 +15,6 @@
     for (const [column_name, value] of detailsArray) {
       details[column_name] = value
     }
-  }
-
-  function clearMessage() {
-    saveMessage = ""
-    hiddenClass = " hidden"
   }
 
   const updateForm = async () => {
