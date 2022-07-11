@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <h1>
     <a href="/">
       CV Creator
@@ -20,5 +20,5 @@
 </header>
 
 <style lang="scss">
-  @import "../styles/header.scss";
+  @import "../../styles/header.scss";
 </style>

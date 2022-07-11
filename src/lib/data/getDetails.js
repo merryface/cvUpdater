@@ -1,4 +1,4 @@
-import { supabase } from '$lib/supabaseClient.js'
+import { supabase } from '$lib/data/supabaseClient.js'
 
 export const getDetails = async (table_name) => {
   try {

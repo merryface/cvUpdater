@@ -1,5 +1,5 @@
 <script>
-  import supabase from '$lib/db'
+  import supabase from '$lib/data/db'
 
   let email, password
 

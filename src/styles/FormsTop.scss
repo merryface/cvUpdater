@@ -1,0 +1,18 @@
+.FormsTop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+
+.FormsTop_upper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.FormsTop_Lower {
+  width: 100%;
+}
