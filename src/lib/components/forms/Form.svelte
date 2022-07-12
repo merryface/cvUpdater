@@ -3,6 +3,7 @@
   import clearMessage from '$lib/utils/clearMessage.js'
   import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
+  import SubmitButton from '$lib/components/SubmitButton.svelte'
 
   import Input from '$lib/components/Input.svelte'
 
@@ -38,7 +39,12 @@
         value={value}
       />
     {/each}
-    <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button>
+
+    <SubmitButton
+      label={"Add Qualification"}
+      updateForm={updateForm}
+    />
+    
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
   </form>
 </section>

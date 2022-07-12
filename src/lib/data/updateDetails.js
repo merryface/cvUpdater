@@ -1,6 +1,6 @@
 import { supabase } from '$lib/data/supabaseClient.js'
 
-export const postDetails = async (details, table_name) => {
+export const updateDetails = async (details, table_name) => {
   try {
     const user = supabase.auth.user()
     details.user_id = user.id

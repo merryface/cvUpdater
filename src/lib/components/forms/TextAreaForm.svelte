@@ -1,7 +1,8 @@
 <script>
   import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
-  import { postPutDetails } from '$lib/data/postPutDetails.js'
+  import { updateDetails } from '$lib/data/updateDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
+  import SubmitButton from '$lib/components/SubmitButton.svelte'
 
   export let details = {}
   export let detailsArray = []
@@ -24,7 +25,7 @@
   const updateForm = async () => {
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
-    await postPutDetails(details, table_name, newRow)
+    await updateDetails(details, table_name, newRow)
     saveMessage = "Details saved"
     hiddenClass = ""
     const myTimeout = setTimeout(clearMessage, 3000);
@@ -42,7 +43,11 @@
         placeholder={transformColumnNameToLabel(label)}
       />
     {/each}
-    <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button>
+    <SubmitButton
+      label={"Add Qualification"}
+      updateForm={updateForm}
+    />
+    <!-- <button class="submitButton" type="button" id="update" on:click={updateForm}>Update</button> -->
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
   </form>
 </section>
