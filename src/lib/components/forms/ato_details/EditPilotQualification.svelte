@@ -23,9 +23,6 @@
     }
 
     await putDetails(data, "ato_details")
-    ato_name = ""
-    qualification = ""
-    date = ""
 
     saveMessage = "Posted"
     hiddenClass = ""
