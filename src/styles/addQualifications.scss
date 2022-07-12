@@ -19,11 +19,3 @@
   align-items: center;
   gap: 0.5rem;
 }
-
-.submitButton {
-  @include submit-button;
-  width: 25%;
-  height: 3.55rem;
-  padding: 0 1rem;
-  font-size: 1.3rem;
-}
