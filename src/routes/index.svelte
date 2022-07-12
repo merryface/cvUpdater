@@ -2,6 +2,7 @@
   import supabase from'$lib/data/db'
   import FormsTop from '$lib/components/FormsTop.svelte'
   import AddPilotQualification from '$lib/components/forms/ato_details/AddPilotQualification.svelte'
+  import PilotQualifications from '$lib/components/forms/ato_details/PilotQualifications.svelte'
   
   async function signOut() {
     const {error} = await supabase.auth.signOut()
@@ -11,6 +12,7 @@
 <div class="AllForms">
   <FormsTop />
   <AddPilotQualification />
+  <PilotQualifications />
 </div>
 <button class="signOut" on:click={signOut}>Sign Out</button>
 
