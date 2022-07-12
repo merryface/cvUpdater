@@ -18,6 +18,10 @@
   padding: 1rem;
   border: none;
   border-radius: 5px;
+
+  &:focus {
+    outline: orange 5px auto;
+  }
 }
 
 @mixin submit-button {
