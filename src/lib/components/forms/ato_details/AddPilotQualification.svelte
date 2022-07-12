@@ -1,7 +1,7 @@
 <script>
   import { postDetails } from '$lib/data/postDetails.js';
-  import Input from '$lib/components/Input.svelte'
   import SubmitButton from '$lib/components/SubmitButton.svelte'
+  import Input from '$lib/components/Input.svelte'
 
   let ato_name = ""
   let qualification = ""
@@ -15,13 +15,14 @@
   }
 
   const updateForm = async () => {
-    const details = {
+    console.log(ato_name)
+    const data = {
       ato_name,
       qualification,
       date
     }
 
-    await postDetails(details, "ato_details")
+    await postDetails(data, "ato_details")
     ato_name = ""
     qualification = ""
     date = ""
@@ -34,17 +35,20 @@
 <section class="form_container add_qualifications">
   <h2 class="form_header">Enter New Qualification</h2>
   <form class="form-Details">
-      <Input
-        label={"ATO_name"}
-        value={ato_name}
+      <input type="text"
+        name="ato_name"
+        bind:value={ato_name}
+        placeholder="ATO Name"
       />
-      <Input 
-        label={"qualification"}
-        value={qualification}
-    />
-    <Input
-      label={"date"}
-      value={date}
+      <input type="text"
+        name="qualification"
+        bind:value={qualification}
+        placeholder="Qualification"
+      />
+      <input type="text"
+      name="date"
+      bind:value={date}
+      placeholder="Date"
     />
     <SubmitButton
       label={"Add Qualification"}
