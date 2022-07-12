@@ -1,6 +1,5 @@
 <script>
   import { postDetails } from '$lib/data/postDetails.js';
-  import clearMessage from '$lib/utils/clearMessage.js'
   import Input from '$lib/components/Input.svelte'
   import SubmitButton from '$lib/components/SubmitButton.svelte'
 
@@ -9,6 +8,11 @@
   let date = ""
   let hiddenClass = " hidden"
   let saveMessage = ""
+
+  const clearMessage = () => {
+    saveMessage = ""
+    hiddenClass = " hidden"
+  }
 
   const updateForm = async () => {
     const details = {
@@ -24,7 +28,7 @@
 
     saveMessage = "Posted"
     hiddenClass = ""
-    const myTimeout = setTimeout(() => clearMessage(saveMessage, hiddenClass), 3000);
+    const myTimeout = setTimeout(() => clearMessage(), 3000);
   }
 </script>
 <section class="form_container add_qualifications">

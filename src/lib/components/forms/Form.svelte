@@ -1,6 +1,5 @@
 <script>
   import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
-  import clearMessage from '$lib/utils/clearMessage.js'
   import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
   import SubmitButton from '$lib/components/SubmitButton.svelte'
@@ -20,18 +19,20 @@
     }
   }
 
+  const clearMessage = () => {
+    saveMessage = ""
+    hiddenClass = " hidden"
+  }
+
   const updateForm = async () => {
-    console.log("updateForm");
-    
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
-    console.log(details);
     
-    await postPutDetails(details, table_name, newRow).then(res => console.log(res));
-    console.log(details);
+    await postPutDetails(details, table_name, newRow)
+    console.log('posted')
     saveMessage = "Details saved"
     hiddenClass = ""
-    const myTimeout = setTimeout(() => clearMessage, 3000);
+    const myTimeout = setTimeout( clearMessage(), 3000);
   }
 </script>
 
@@ -46,7 +47,7 @@
     {/each}
 
     <SubmitButton
-      label={"Add Qualification"}
+      label={"Update Details"}
       updateForm={updateForm}
     />
     
