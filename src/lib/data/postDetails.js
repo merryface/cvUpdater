@@ -1,14 +1,9 @@
 import { supabase } from '$lib/data/supabaseClient.js'
 
 export const postDetails = async (details, table_name) => {
-  console.log("Start posting");
-  
   try {
-    console.log("Start try");
-    
     const user = supabase.auth.user()
     details.user_id = user.id
-    console.log([details]);
 
     const { data, error } = await supabase
     .from(table_name)
@@ -17,6 +12,4 @@ export const postDetails = async (details, table_name) => {
   } catch (error) {
     alert(error.message)
   }
-
-  console.log("End posting");
 }

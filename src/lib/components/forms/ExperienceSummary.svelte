@@ -9,7 +9,7 @@
   let newRow = false
 
   onMount(async () => {
-    details = await getDetails("experience_summary") 
+    details = await getDetails("experience_summary")
 
     if (Object.entries(details).length == 0) {
       details = {
@@ -20,7 +20,6 @@
         instructor_hours: "",
         a320_hours: "",
       }
-
       newRow = true
     } 
     let sanitisedDetails = sanitiseDetails(details)

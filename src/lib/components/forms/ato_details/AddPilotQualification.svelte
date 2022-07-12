@@ -14,7 +14,6 @@
   }
 
   const updateForm = async () => {
-    console.log(ato_name)
     const data = {
       ato_name,
       qualification,

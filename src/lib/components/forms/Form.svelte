@@ -9,7 +9,9 @@
   export let table_name
   let saveMessage = ""
   let hiddenClass = " hidden"
-  export let newRow = true
+  export let newRow = false;
+
+  console.log("Form below exports and imports ====> ", newRow);
 
   const updateLocalDetails = (details, detailsArray) => {
     for (const [column_name, value] of detailsArray) {
@@ -25,9 +27,10 @@
   const updateForm = async () => {
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
+
+    console.log("Form right before API Call ====> ", newRow);
     
     await postPutDetails(details, table_name, newRow)
-    console.log('posted')
     saveMessage = "Details saved"
     hiddenClass = ""
     const myTimeout = setTimeout( clearMessage(), 3000);

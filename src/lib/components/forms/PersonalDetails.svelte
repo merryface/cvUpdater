@@ -6,7 +6,7 @@
 
   let details = {}
   let detailsArray = []
-  let newRow = true
+  let newRow = false
 
 
   onMount(async () => {
@@ -21,9 +21,10 @@
         telephone_number: "",
         email_address: "",
       }
+      newRow = true
     }
-
-    newRow = true
+    console.log("PersonaDetails after updating inputs ====> ", newRow);
+    
     let sanitisedDetails = sanitiseDetails(details)
     detailsArray = Object.entries(sanitisedDetails)
   })

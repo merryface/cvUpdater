@@ -1,6 +1,6 @@
 import { supabase } from '$lib/data/supabaseClient.js'
 
-export const postPutDetails = async (details, table_name, newRow) => {  
+export const postPutDetails = async (details, table_name, newRow) => {
   try {
     const user = supabase.auth.user()
     details.user_id = user.id
@@ -13,7 +13,7 @@ export const postPutDetails = async (details, table_name, newRow) => {
     } else {
       const { data, error } = await supabase
       .from(table_name)
-      .update(details)
+      .update([details])
       .eq('user_id', user.id)
     }
   } catch (error) {
