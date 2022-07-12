@@ -4,8 +4,6 @@
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
   import SubmitButton from '$lib/components/SubmitButton.svelte'
 
-  import Input from '$lib/components/Input.svelte'
-
   export let details = {}
   export let detailsArray = []
   export let table_name
