@@ -41,7 +41,6 @@
     <Input
       label={"date"}
       value={date}
-    type="text"
     />
     <SubmitButton
       label={"Add Qualification"}

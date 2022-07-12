@@ -21,9 +21,14 @@
   }
 
   const updateForm = async () => {
+    console.log("updateForm");
+    
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
-    await postPutDetails(details, table_name, newRow)
+    console.log(details);
+    
+    await postPutDetails(details, table_name, newRow).then(res => console.log(res));
+    console.log(details);
     saveMessage = "Details saved"
     hiddenClass = ""
     const myTimeout = setTimeout(() => clearMessage, 3000);

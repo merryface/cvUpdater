@@ -1,6 +1,6 @@
 <script>
   import { transformColumnNameToLabel } from '$lib/utils/transformColumnNameToLabel.js'
-  import { updateDetails } from '$lib/data/updateDetails.js'
+  import { postPutDetails } from '$lib/data/postPutDetails.js'
   import updateLocalStorage from '$lib/utils/updateLocalStorage.js'
   import SubmitButton from '$lib/components/SubmitButton.svelte'
 
@@ -25,7 +25,7 @@
   const updateForm = async () => {
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
-    await updateDetails(details, table_name, newRow)
+    await postPutDetails(details, table_name, newRow)
     saveMessage = "Details saved"
     hiddenClass = ""
     const myTimeout = setTimeout(clearMessage, 3000);
