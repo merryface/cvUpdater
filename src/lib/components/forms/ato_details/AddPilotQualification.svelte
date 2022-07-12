@@ -1,7 +1,6 @@
 <script>
   import { postDetails } from '$lib/data/postDetails.js';
   import SubmitButton from '$lib/components/SubmitButton.svelte'
-  import Input from '$lib/components/Input.svelte'
 
   let ato_name = ""
   let qualification = ""

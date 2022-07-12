@@ -40,10 +40,11 @@
   <h2 class="form_header">Enter Your {transformColumnNameToLabel(table_name)}</h2>
   <form class="form-Details">
     {#each detailsArray as [label, value]}
-      <Input
-        label={label}
-        value={value}
-      />
+      <input type="text"
+      name={label}
+      bind:value={value}
+      placeholder={transformColumnNameToLabel(label)}
+    />
     {/each}
 
     <SubmitButton
