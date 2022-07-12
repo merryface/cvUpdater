@@ -11,8 +11,6 @@
   let hiddenClass = " hidden"
   export let newRow = false;
 
-  console.log("Form below exports and imports ====> ", newRow);
-
   const updateLocalDetails = (details, detailsArray) => {
     for (const [column_name, value] of detailsArray) {
       details[column_name] = value
@@ -28,8 +26,6 @@
     updateLocalDetails(details, detailsArray)
     updateLocalStorage(table_name, details)
 
-    console.log("Form right before API Call ====> ", newRow);
-    
     await postPutDetails(details, table_name, newRow)
     saveMessage = "Details saved"
     hiddenClass = ""

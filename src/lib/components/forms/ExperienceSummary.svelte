@@ -10,6 +10,7 @@
 
   onMount(async () => {
     details = await getDetails("experience_summary")
+    details = details[0]
 
     if (Object.entries(details).length == 0) {
       details = {

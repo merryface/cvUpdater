@@ -9,7 +9,8 @@
   let newRow = false
 
   onMount(async () => {
-    details = await getDetails("blurb_body") 
+    details = await getDetails("blurb_body")
+    details = details[0]
 
     if (Object.entries(details).length == 0) {
       details = {

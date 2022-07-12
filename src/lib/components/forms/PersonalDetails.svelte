@@ -11,6 +11,8 @@
 
   onMount(async () => {
     details = await getDetails("personal_details")
+    details = details[0]
+    
 
     if (Object.entries(details).length == 0) {
       details = {
@@ -23,8 +25,7 @@
       }
       newRow = true
     }
-    console.log("PersonaDetails after updating inputs ====> ", newRow);
-    
+
     let sanitisedDetails = sanitiseDetails(details)
     detailsArray = Object.entries(sanitisedDetails)
   })

@@ -12,7 +12,7 @@ export const getDetails = async (table_name) => {
     if (error && status !== 406) throw error
 
     if (data) {
-      if(data.length > 0) return data[0]
+      if(data.length > 0) return data
       if(data.length === 0) return {}
     }
   } catch (error) {
