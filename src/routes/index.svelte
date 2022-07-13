@@ -1,7 +1,7 @@
 <script>
   import supabase from'$lib/data/db'
   import FormsTop from '$lib/components/FormsTop.svelte'
-  import FormsQualifications from '$lib/components/forms/ato_details/FormsQualifications.svelte'
+  import FormsQualifications from '$lib/components/forms/FormsQualifications.svelte'
   
   async function signOut() {
     const {error} = await supabase.auth.signOut()

@@ -19,14 +19,18 @@
 </script>
 
 
-
-<form class="PilotQualifications">
-  {#each details as qualification}
+<section class="form_container qualifications">
+  <h2 class="form_header">Edit Ratings or Licenses</h2>
+    {#each details as qualification}
     <EditPilotQualification 
     ato_name ={qualification.ato_name}
     qualification ={qualification.qualification}
     date ={qualification.date}
     id ={qualification.id}
     />
-  {/each}
-</form>
+    {/each}
+</section>
+
+<style lang="scss">
+  @import '../../../../styles/qualification.scss';
+</style>

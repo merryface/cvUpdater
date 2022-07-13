@@ -30,8 +30,8 @@
     const myTimeout = setTimeout(() => clearMessage(), 3000);
   }
 </script>
-<section class="form_container add_qualifications">
-  <h2 class="form_header">Enter New Qualification</h2>
+<section class="form_container qualifications">
+  <h2 class="form_header">Enter New Rating or License</h2>
   <form class="form-Details">
       <input type="text"
         name="ato_name"
@@ -41,7 +41,7 @@
       <input type="text"
         name="qualification"
         bind:value={qualification}
-        placeholder="Qualification"
+        placeholder="Rating or License"
       />
       <input type="text"
       name="date"
@@ -57,5 +57,5 @@
 </section>
 
 <style lang="scss">
-  @import '../../../../styles/addQualifications.scss';
+  @import '../../../../styles/qualification.scss';
 </style>

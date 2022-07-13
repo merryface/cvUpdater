@@ -29,31 +29,31 @@
     const myTimeout = setTimeout(() => clearMessage(), 3000);
   }
 </script>
+<form class="form-details">
 
-<section class="form_container add_qualifications">
-  <h2 class="form_header">Enter New Qualification</h2>
-    <input type="text"
-      name="ato_name"
-      bind:value={ato_name}
-      placeholder="ATO Name"
-    />
-    <input type="text"
-      name="qualification"
-      bind:value={qualification}
-      placeholder="Qualification"
-    />
-    <input type="text"
-    name="date"
-    bind:value={date}
-    placeholder="Date"
+  <input type="text"
+  name="ato_name"
+  bind:value={ato_name}
+  placeholder="ATO Name"
+  />
+  <input type="text"
+  name="qualification"
+  bind:value={qualification}
+  placeholder="Rating or License"
+  />
+  <input type="text"
+  name="date"
+  bind:value={date}
+  placeholder="Date"
   />
   <SubmitButton
-    label={"Add Qualification"}
-    updateForm={updateForm}
+  label={"Add Qualification"}
+  updateForm={updateForm}
+  className=" edit-button"
   />
   <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
-</section>
+</form>
 
 <style lang="scss">
-  @import '../../../../styles/addQualifications.scss';
+  @import '../../../../styles/qualification.scss';
 </style>
