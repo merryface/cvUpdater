@@ -51,6 +51,7 @@
     <SubmitButton
       label={"Add Qualification"}
       updateForm={updateForm}
+      className=" add-button"
     />
     <div class={"saveMessage" + hiddenClass}><p>{saveMessage}</p></div>
   </form>

@@ -9,17 +9,21 @@
   let sanitisedDetails = []
   let idArray = []
 
-  onMount(async () => {
+  const onLoad = async () => {
     details = await getDetails('ato_details')
     sanitisedDetails = details.map(row => {
       idArray.push(row.id)
     })
+  }
+
+  onMount(async () => {
+    await onLoad()
   })
 
 </script>
 
 
-<section class="form_container qualifications">
+<section class="form_container qualifications qualifications_edit">
   <h2 class="form_header">Edit Ratings or Licenses</h2>
     {#each details as qualification}
     <EditPilotQualification 
